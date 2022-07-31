@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment { 
         CC = 'clang'
+        DOCKERHUB_CREDENTIALS = credentials('dockerHub')
     }
     stages {
         stage('Example') {
