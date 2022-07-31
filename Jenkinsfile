@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment { 
         CC = 'clang'
-        DOCKERHUB_CREDENTIALS = credentials('DOCKERHUB_CREDENTIALS')
+        DOCKERHUB_CREDENTIALS_ACCESS = credentials('DOCKERHUB_CREDENTIALS')
     }
     stages {
         stage('Example') {
