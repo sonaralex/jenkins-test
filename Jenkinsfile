@@ -1,12 +1,5 @@
+import jenkins.model.*
+jenkins = Jenkins.instance
 
-pipeline{
-    agent any
-    
-    stages{
-        stage("Env Variables"){
-            steps{
-               sh ‘printenv’                                                     
-            }
-        }
-    }
-}
+EnvironmentVariablesNodeProperty prop = jenkins.getGlobalNodeProperties().get(EnvironmentVariablesNodeProperty.class)
+EnvVars env = prop.getEnvVars()
