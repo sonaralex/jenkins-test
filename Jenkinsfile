@@ -1,17 +1,16 @@
-pipeline{
+pipeline {
+    agent any
 
-agent any
-	stages {
+    environment {
+        USER_CREDENTIALS = credentials('dockerHub')
+    }
 
-		stage('Build') {
-
-			steps {
-				sh 'echo test'
-			}
-		}
-
-		
-	}
-
-
+    stages {
+        stage('Run') {
+            steps {
+                sh "echo $USER_CREDENTIALS_USR"
+                sh "echo $USER_CREDENTIALS_PSW"
+            }
+        }
+    }
 }
